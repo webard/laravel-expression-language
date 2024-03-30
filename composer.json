@@ -1,0 +1,58 @@
+{
+    "name": "webard/laravel-expression-language",
+    "description": "Package Description",
+    "keywords": [
+        "webard",
+        "laravel",
+        "symfony",
+        "eval",
+        "expression"
+    ],
+    "homepage": "https://github.com/webard/laravel-expression-language",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Webard",
+            "email": "code@webard.me",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0|^11.0",
+        "symfony/expression-language": "^7.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^2.9",
+        "laravel/pint": "^1.15",
+        "phpunit/phpunit": "^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Webard\\LaravelExpressionLanguage\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Webard\\LaravelExpressionLanguage\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webard\\LaravelExpressionLanguage\\ExpressionLanguageServiceProvider"
+            ],
+            "aliases": {
+                "ExpressionLanguage": "Webard\\LaravelExpressionLanguage\\ExpressionLanguageFacade"
+            }
+        }
+    }
+}
