@@ -51,7 +51,7 @@
                 "Webard\\LaravelExpressionLanguage\\ServiceProvider"
             ],
             "aliases": {
-                "ExpressionLanguage": "Webard\\LaravelExpressionLanguage\\Facade"
+                "ExpressionLanguage": "Webard\\LaravelExpressionLanguage\\Facade\\ExpressionLanguage"
             }
         }
     }
