@@ -1,10 +1,10 @@
 <?php
 
-namespace Webard\LaravelExpressionLanguage;
+namespace Webard\LaravelExpressionLanguage\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
-class LaravelPackageSkeletonFacade extends Facade
+class ExpressionLanguage extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class LaravelPackageSkeletonFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'laravel-expression-language';
+        return 'expression-language';
     }
 }

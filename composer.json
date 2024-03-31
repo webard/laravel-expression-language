@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Webard\\LaravelExpressionLanguage\\ExpressionLanguageServiceProvider"
+                "Webard\\LaravelExpressionLanguage\\ServiceProvider"
             ],
             "aliases": {
-                "ExpressionLanguage": "Webard\\LaravelExpressionLanguage\\ExpressionLanguageFacade"
+                "ExpressionLanguage": "Webard\\LaravelExpressionLanguage\\Facade"
             }
         }
     }

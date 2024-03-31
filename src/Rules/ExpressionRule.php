@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Webard\LaravelExpressionLanguage\Rules;
 
-use App\Contracts\ExpressionLanguageContract;
-use App\Services\ExpressionLanguage;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Throwable;
+use Webard\LaravelExpressionLanguage\Contracts\ExpressionLanguage as ExpressionLanguageContract;
+use Webard\LaravelExpressionLanguage\ExpressionLanguage;
 
 final class ExpressionRule implements ValidationRule
 {
