@@ -7,7 +7,6 @@ namespace Webard\LaravelExpressionLanguage\Rules;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Throwable;
-use Webard\LaravelExpressionLanguage\Contracts\ExpressionLanguage as ExpressionLanguageContract;
 use Webard\LaravelExpressionLanguage\ExpressionLanguage;
 
 final class ExpressionRule implements ValidationRule
@@ -21,7 +20,7 @@ final class ExpressionRule implements ValidationRule
 
     public function __construct()
     {
-        $this->expressionLanguage = app()->make(ExpressionLanguageContract::class);
+        $this->expressionLanguage = app()->make('expression-language');
     }
 
     /**
