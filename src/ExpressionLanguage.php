@@ -4,32 +4,36 @@ declare(strict_types=1);
 
 namespace Webard\LaravelExpressionLanguage;
 
+use Illuminate\Config\Repository;
 use Symfony\Component\ExpressionLanguage\ExpressionFunction;
 use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage as SymfonyExpressionLanguage;
 
 final class ExpressionLanguage
 {
-    private SymfonyExpressionLanguage $expressionLanguage;
+    public readonly SymfonyExpressionLanguage $expressionLanguage;
 
-    /**
-     * @param  array<ExpressionFunction>  $functions
-     */
-    public function __construct(array $functions = [])
+    public function __construct(private Repository $config)
     {
+        $allowedFunctions = $this->config->get('expression-language.allowed_functions', []);
 
-        $functionsProvider = new class($functions) implements ExpressionFunctionProviderInterface
+        $expressionFunctions = array_map(
+            function (string|array $functionName) {
+                $functionName = is_array($functionName) ? $functionName : [$functionName];
+
+                return ExpressionFunction::fromPhp(...$functionName);
+            },
+            $allowedFunctions
+        );
+        $functionsProvider = new class($expressionFunctions) implements ExpressionFunctionProviderInterface
         {
-            /**
-             * @param  array<ExpressionFunction>  $functions
-             */
-            public function __construct(private array $functions)
+            public function __construct(private array $expressionFunctions)
             {
             }
 
             public function getFunctions(): array
             {
-                return $this->functions;
+                return $this->expressionFunctions;
             }
         };
 
