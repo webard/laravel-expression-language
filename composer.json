@@ -20,14 +20,14 @@
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/config": "^11.1",
-        "illuminate/contracts": "^11.1",
+        "illuminate/config": "^10.0|^11.0",
+        "illuminate/contracts": "^10.0|^11.0",
         "illuminate/support": "^10.0|^11.0",
         "symfony/expression-language": "^7.0"
     },
     "require-dev": {
         "larastan/larastan": "^2.9",
-        "laravel/pint": "^1.15",
+        "laravel/pint": "^1.10",
         "orchestra/testbench": "^9.0.3",
         "pestphp/pest": "^2.34",
         "phpunit/phpunit": "^10.0|^11.0"
